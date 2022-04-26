@@ -1,0 +1,33 @@
+.customHeight {
+  height: 420px;
+}
+
+.img-container {
+  position: relative;
+}
+
+.img-overlay {
+  width: 100%;
+  height: 100%;
+  padding-top: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  background-image: linear-gradient(
+      96deg,
+      rgba(0, 0, 0, 0.84) 32%,
+      transparent 71%
+    ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.84), transparent 24%);
+}
+
+.img-overlay h5 {
+  color: red;
+}
+
+.img-overlay h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

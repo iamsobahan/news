@@ -1,0 +1,130 @@
+.nav__bg {
+  background: #ffd9d9;
+  padding-bottom: 10px !important;
+}
+
+.navbar {
+  padding-top: 30px !important;
+  background: #ffd9d9;
+}
+
+.logo {
+  width: 220px;
+  height: 52px;
+}
+
+.input {
+  border: 3px solid black;
+  border-radius: 35px;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.input input {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 8px 0px;
+  padding-left: 10px;
+}
+.input input::-webkit-input-placeholder {
+  color: black;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+.input button {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.input svg {
+  font-size: 22px;
+}
+
+.nav__right li {
+  display: inline-block;
+  margin-right: 30px;
+  background: black;
+  padding: 2px 15px;
+  border-radius: 6px;
+  transition: 0.4s;
+}
+
+.nav__right li a {
+  color: white;
+  font-size: 13px;
+}
+
+.nav__right li svg {
+  color: white;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.nav__right li:hover {
+  background: #ff2828;
+}
+
+.nav__bg .nav__bg__bottom {
+  padding-top: 30px;
+}
+.nav__bg .nav__bg__bottom ul {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__bg .nav__bg__bottom ul li a {
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 4px 8px;
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 37px;
+  left: -195px;
+  background: #ffd9d9;
+  width: 0px;
+  height: 0px;
+  visibility: hidden;
+  opacity: 0;
+  border-top: 2px solid red;
+  transition: 0.4s;
+}
+
+.dropdown-container .dropdown-content li .dropdown-item {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 5px 20px;
+}
+
+.dropdown-container .dropdown-content li .dropdown-item:active {
+  background: none !important;
+}
+.dropdown-container:hover .dropdown-content {
+  height: 230px;
+  width: 280px;
+  visibility: visible;
+  opacity: 1;
+  z-index: 9999;
+}
+
+.dropdown-container svg {
+  transition: 0.4s;
+}
+
+.dropdown-container:hover svg {
+  transform: rotate(180deg);
+}
