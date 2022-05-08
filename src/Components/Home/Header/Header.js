@@ -15,6 +15,7 @@ import {
   Navbar,
   NavDropdown,
 } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -64,7 +65,7 @@ const Header = () => {
         <Container>
           <ul>
             <li>
-              <a href="/">বাংলাদেশ </a>
+              <Link to="/bangladesh">বাংলাদেশ</Link>
             </li>
             <li>
               <a href="/">রাজনীতি </a>
