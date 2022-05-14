@@ -1,5 +1,5 @@
 import './Header.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FiSearch } from 'react-icons/fi';
 import { MdCastForEducation } from 'react-icons/md';
@@ -7,6 +7,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { FaSearchPlus, FaYoutube } from 'react-icons/fa';
 
 import logo from '../../../images/logo.png';
+
 import {
   Container,
   Form,
@@ -16,8 +17,21 @@ import {
   NavDropdown,
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import HeaderDinamic from './HeaderDinamic';
 
 const Header = () => {
+  const [headerData, setheaderData] = useState([]);
+  useEffect(() => {
+    axios('https://api.bestaid.com.bd/api/show/category/home')
+      .then((res) => {
+        setheaderData(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="nav__bg">
       <Navbar>
@@ -31,10 +45,9 @@ const Header = () => {
             </div>
           </div>
           <div className="col-lg-3 col-md-4 col-sm-4">
-            <a href="/">
-              {' '}
+            <Link to="/">
               <img className="logo" src={logo} alt="" />
-            </a>
+            </Link>
           </div>
           <div className="col-lg-5 col-md-5 col-sm-5">
             <ul className="nav__right">
@@ -64,27 +77,9 @@ const Header = () => {
       <div className="nav__bg__bottom">
         <Container>
           <ul>
-            <li>
-              <Link to="/bangladesh">বাংলাদেশ</Link>
-            </li>
-            <li>
-              <a href="/">রাজনীতি </a>
-            </li>
-            <li>
-              <a href="/">বিশ্ব </a>
-            </li>
-            <li>
-              <a href="/">খেলা </a>
-            </li>
-            <li>
-              <a href="/">বিনোদন </a>
-            </li>
-            <li>
-              <a href="/">স্বাস্থ্য </a>
-            </li>
-            <li>
-              <a href="/">বানিজ্য </a>
-            </li>
+            {headerData.map((item) => (
+              <HeaderDinamic key={item.id} item={item}></HeaderDinamic>
+            ))}
             <li className="dropdown-container">
               <a href="/">
                 আরও <IoIosArrowDown />

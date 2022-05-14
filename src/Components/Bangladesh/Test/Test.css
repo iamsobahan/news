@@ -1,0 +1,3 @@
+.react-tabs__tab--selected button {
+  background: red !important;
+}

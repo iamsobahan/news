@@ -7,12 +7,12 @@ const Banner = () => {
   return (
     <div
       id="carouselExampleControls"
-      class="carousel slide carousel-fade"
+      className="carousel slide carousel-fade"
       data-bs-ride="carousel"
     >
-      <div class="carousel-inner">
-        <div class="carousel-item active img-container">
-          <img src={banner} class="d-block w-100 customHeight" alt="..." />
+      <div className="carousel-inner">
+        <div className="carousel-item active img-container">
+          <img src={banner} className="d-block w-100 customHeight" alt="..." />
           <div className="img-overlay">
             <div className="container">
               <h5>বাংলাদেশ</h5>
@@ -26,8 +26,8 @@ const Banner = () => {
             </div>
           </div>
         </div>
-        <div class="carousel-item img-container">
-          <img src={banner2} class="d-block w-100 customHeight" alt="..." />
+        <div className="carousel-item img-container">
+          <img src={banner2} className="d-block w-100 customHeight" alt="..." />
           <div className="img-overlay">
             <div className="container">
               <h5>রাজনীতি</h5>

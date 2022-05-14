@@ -1,0 +1,41 @@
+.nav-link {
+  margin: 0 20px;
+  background: black !important;
+  color: white;
+}
+
+.nav-link:hover {
+  color: white !important;
+}
+
+.nav-link.active {
+  background: red !important;
+}
+
+.nav {
+  position: relative;
+}
+
+.nav::after {
+  position: absolute;
+  bottom: -20px;
+  left: 131px;
+  width: 77%;
+  height: 2px;
+  content: '';
+  background: red;
+}
+
+.cardMother {
+  position: relative;
+}
+
+.cardOverlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 15px 20px 0px 20px !important;
+}
