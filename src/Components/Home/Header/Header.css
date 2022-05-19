@@ -101,6 +101,8 @@
   visibility: hidden;
   opacity: 0;
   border-top: 2px solid red;
+  display: flex;
+  flex-direction: column;
   transition: 0.4s;
 }
 

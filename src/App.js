@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Components/Home/Footer/Footer';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home/Home';
-import Bangladesh from './Components/Bangladesh/Bangladesh/Bangladesh';
+import { BangladeshMain } from './Components/Bangladesh/BangladeshImport/BangladeshImport';
+import Details from './Components/Details/Details';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/category/:slug" element={<Bangladesh />} />
+        <Route path="/category/banglades" element={<BangladeshMain />} />
+        <Route path="/details/:id" element={<Details />} />
       </Routes>
       <Footer />
     </>

@@ -1,0 +1,98 @@
+.bannerHeader {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.bannerHeader__overlay {
+  width: 100%;
+  height: 100%;
+  padding: 103px 0px 446px 0;
+  background: linear-gradient(8deg, rgba(0, 0, 0, 10) 25%, transparent 100%),
+    linear-gradient(100deg, rgba(0, 0, 0, 0.7), transparent 44%);
+}
+
+.bannerHeader__header {
+  width: 488px;
+}
+
+.bannerHeader__paragraph {
+  width: 350px;
+  margin-top: 26px !important;
+  margin-bottom: 61px !important;
+}
+
+.bannerBottom__paragraph {
+  width: 181px;
+  font-size: 13px;
+  padding-right: 20px;
+  margin-top: 25px !important;
+}
+
+.bannerBottom {
+  transform: translateY(-88%);
+}
+
+.nav-link {
+  margin: 0 20px;
+  background: black !important;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: white !important;
+}
+
+.nav-link:focus {
+  color: white !important;
+}
+
+.nav-link:visited {
+  color: white !important;
+}
+
+.nav-link.active {
+  background: red !important;
+}
+
+.nav {
+  position: relative;
+}
+
+.nav::after {
+  position: absolute;
+  bottom: -20px;
+  left: 131px;
+  width: 77%;
+  height: 2px;
+  content: '';
+  background: red;
+}
+
+.cardMother {
+  position: relative;
+}
+
+.cardOverlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 15px 20px 0px 20px !important;
+}
+
+.react-tabs__tab--selected {
+  background: red !important;
+  cursor: pointer;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+}

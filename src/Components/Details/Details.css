@@ -1,0 +1,59 @@
+/* author : Sobahan Al Tahsin 
+    date : 16/5/2022
+*/
+
+.details {
+  margin-top: 85px;
+}
+/* details headline  */
+.details__headline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 94px;
+}
+.details__container-para {
+  color: #ff1010 !important;
+  font-size: 32px;
+}
+
+.details__container-small {
+  font-size: 24px;
+  font-weight: 300;
+  color: #020202;
+}
+
+/* details content  */
+.details__content p {
+  color: #000000;
+  font-size: 32px;
+  margin: 3rem 0 !important;
+}
+
+.details__content h1 {
+  font-size: 64px;
+  color: #000000;
+}
+
+.details__content h4 {
+  font-weight: bold;
+  margin-top: 40px !important;
+  font-size: 40px;
+  color: #000000;
+}
+
+/* details foooter  */
+.details__footer {
+  padding: 104px 0;
+}
+
+.details__footer ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.details__footer ul li a {
+  color: #ff1010;
+  font-size: 24px;
+}

@@ -84,7 +84,7 @@ const Header = () => {
               <a href="/">
                 আরও <IoIosArrowDown />
               </a>
-              <div className="dropdown-content">
+              <ul className="dropdown-content">
                 <li>
                   <a className="dropdown-item" href="/">
                     ধর্ম
@@ -116,7 +116,7 @@ const Header = () => {
                     লাইফস্টাইল
                   </a>
                 </li>
-              </div>
+              </ul>
             </li>
           </ul>
         </Container>
