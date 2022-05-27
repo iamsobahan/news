@@ -6,6 +6,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home/Home';
 import { BangladeshMain } from './Components/Bangladesh/BangladeshImport/BangladeshImport';
 import Details from './Components/Details/Details';
+import { DocumentaryMain } from './Components/Decumentary/DocumentaryImport/DocumentaryImport';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/category/banglades" element={<BangladeshMain />} />
+        <Route path="/documentary" element={<DocumentaryMain />} />
         <Route path="/details/:id" element={<Details />} />
       </Routes>
       <Footer />

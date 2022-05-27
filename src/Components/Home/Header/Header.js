@@ -52,22 +52,22 @@ const Header = () => {
           <div className="col-lg-5 col-md-5 col-sm-5">
             <ul className="nav__right">
               <li>
-                <a href="/">
+                <Link to="/bcs">
                   বি.সি.এস
                   <MdCastForEducation />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/">
+                <Link to="/jobs">
                   চাকুরী
                   <FaSearchPlus />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/">
+                <Link to="/documentary">
                   ডকুমেন্টরি
                   <FaYoutube />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
