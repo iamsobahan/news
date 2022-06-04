@@ -1,16 +1,19 @@
-import React from 'react';
-import { BiTimeFive, BiComment } from 'react-icons/bi';
+import React, { useState } from 'react';
+import { Modal } from 'react-bootstrap';
 import { AiOutlineEye } from 'react-icons/ai';
-import documentaryImg2 from '../../../images/documentaryBanner2.png';
-import topStories from '../../../images/topStories.png';
+import { BiComment, BiTimeFive } from 'react-icons/bi';
+import { BsFillPlayCircleFill } from 'react-icons/bs';
 import Slider from 'react-slick';
 
-const DocumentaryEditors = () => {
+const DocumentaryEditors = ({ editorPic }) => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+
   const settings = {
     dots: true,
     infinite: true,
     autoPlay: true,
-    arrow: true,
+    arrows: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -18,6 +21,23 @@ const DocumentaryEditors = () => {
   return (
     <div className="documentaryEditors">
       <div className="container">
+        <Modal
+          className="bg-transparent"
+          centered
+          show={show}
+          onHide={handleClose}
+        >
+          <Modal.Body>
+            <iframe
+              className="documentaryBanner-youtube w-100 h-100"
+              src="https://www.youtube.com/embed/6eOCceaS9h0"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </Modal.Body>
+        </Modal>
         <div className="shorboshesh__title text-center py-4 mb-3">
           <h1
             className="shorboshesh__title__paragraph"
@@ -29,134 +49,57 @@ const DocumentaryEditors = () => {
         <Slider {...settings}>
           <div className="d-flex">
             <div className="w-50">
-              <iframe
-                width="100%"
-                height="606"
-                src="https://www.youtube.com/embed/4ykAepVkG5Y"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <div className="w-50">
-              <div className="d-flex flex-wrap">
-                <div className="w-50">
-                  <div className="documentaryEditors__content">
-                    <img className="img-fluid" src={topStories} alt="" />
-                    <div className="documentaryEditors__content-overlay">
-                      <div className="documentaryEditors__content-overlay-content">
-                        <small className="customRed">ইউরোপ</small>
-                        <small className="text-white">২১ এপ্রিল ২০২২</small>
-                      </div>
-                      <h3>
-                        পুতিনের সঙ্গে কথা বলা মানে কুমিরের মুখে পা দেওয়া: বরিস
-                        জনসন
-                      </h3>
-                      <div className="documentaryEditors__content-overlay-content-icon">
-                        <div className="mx-2">
-                          <BiTimeFive className="me-1" />১ ঘণ্টা আগে
-                        </div>
-                        <div className="mx-2">
-                          <AiOutlineEye className="me-1" />
-                          ১০০০
-                        </div>
-                        <div className="mx-2">
-                          <BiComment className="me-1" />
-                          ৪৭
-                        </div>
-                      </div>
-                    </div>
+              <div className="position-relative h-100">
+                <img
+                  src={`https://api.bestaid.com.bd/${editorPic[0]?.image}`}
+                  alt="imag"
+                  className="img-fluid"
+                />
+                <div
+                  style={{
+                    background: 'rgb(0 0 0 / 73%)',
+                  }}
+                  className="overlay position-absolute top-50 start-50 translate-middle w-100 h-100"
+                >
+                  <div className="documentaryEditors__content-overlay-content pt-5  px-4">
+                    <small className="customRed">ইউরোপ</small>
+                    <small className="text-white">২১ এপ্রিল ২০২২</small>
                   </div>
-                </div>
-                <div className="w-50">
-                  <div className="documentaryEditors__content">
-                    <img className="img-fluid" src={topStories} alt="" />
-                    <div className="documentaryEditors__content-overlay">
-                      <div className="documentaryEditors__content-overlay-content">
-                        <small className="customRed">ইউরোপ</small>
-                        <small className="text-white">২১ এপ্রিল ২০২২</small>
-                      </div>
-                      <h3>
-                        পুতিনের সঙ্গে কথা বলা মানে কুমিরের মুখে পা দেওয়া: বরিস
-                        জনসন
-                      </h3>
-                      <div className="documentaryEditors__content-overlay-content-icon">
-                        <div className="mx-3">
-                          <BiTimeFive className="me-1" />১ ঘণ্টা আগে
-                        </div>
-                        <div className="mx-3">
-                          <AiOutlineEye className="me-1" />
-                          ১০০০
-                        </div>
-                        <div className="mx-3">
-                          <BiComment className="me-1" />
-                          ৪৭
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-100">
-                  <div className="documentaryBanner__content">
-                    <img
-                      className="documentaryBanner__content-img"
-                      src={documentaryImg2}
-                      alt=""
-                    />
-                    <div
-                      style={{ paddingTop: '150px' }}
-                      className="documentaryBanner__content-overlay"
-                    >
-                      <h3>
-                        পুতিনের সঙ্গে কথা বলা মানে কুমিরের মুখে পা দেওয়া: বরিস
-                        জনসন
-                      </h3>
-                      <div className="documentaryBanner__content-overlay-content-icon size">
-                        <div className="mx-3">
-                          <BiTimeFive className="me-1" />১ ঘণ্টা আগে
-                        </div>
-                        <div className="mx-3">
-                          <AiOutlineEye className="me-1" />
-                          ১০০০
-                        </div>
-                        <div className="mx-3">
-                          <BiComment className="me-1" />
-                          ৪৭
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <BsFillPlayCircleFill
+                    onClick={() => setShow(true)}
+                    className="fs-1 text-danger position-absolute top-50 start-50 transform-middle"
+                  />
+                  <br />
+                  <div
+                    className="text-light text__position"
+                    dangerouslySetInnerHTML={{
+                      __html: editorPic[0]?.sub_title,
+                    }}
+                  ></div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="d-flex">
-            <div className="w-50">
-              <iframe
-                width="100%"
-                height="590"
-                src="https://www.youtube.com/embed/4ykAepVkG5Y"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
             <div className="w-50">
               <div className="d-flex flex-wrap">
                 <div className="w-50">
                   <div className="documentaryEditors__content">
-                    <img className="img-fluid" src={topStories} alt="" />
+                    <img
+                      className="img-fluid"
+                      src={`https://api.bestaid.com.bd/${editorPic[1]?.image}`}
+                      alt=""
+                    />
                     <div className="documentaryEditors__content-overlay">
                       <div className="documentaryEditors__content-overlay-content">
                         <small className="customRed">ইউরোপ</small>
                         <small className="text-white">২১ এপ্রিল ২০২২</small>
                       </div>
-                      <h3>
-                        পুতিনের সঙ্গে কথা বলা মানে কুমিরের মুখে পা দেওয়া: বরিস
-                        জনসন
-                      </h3>
+                      <div
+                        style={{ paddingTop: '50px' }}
+                        className="text-light text-center"
+                        dangerouslySetInnerHTML={{
+                          __html: editorPic[1]?.description,
+                        }}
+                      ></div>
                       <div className="documentaryEditors__content-overlay-content-icon">
                         <div className="mx-2">
                           <BiTimeFive className="me-1" />১ ঘণ্টা আগে
@@ -175,16 +118,23 @@ const DocumentaryEditors = () => {
                 </div>
                 <div className="w-50">
                   <div className="documentaryEditors__content">
-                    <img className="img-fluid" src={topStories} alt="" />
+                    <img
+                      className="img-fluid"
+                      src={`https://api.bestaid.com.bd/${editorPic[2]?.image}`}
+                      alt=""
+                    />
                     <div className="documentaryEditors__content-overlay">
                       <div className="documentaryEditors__content-overlay-content">
                         <small className="customRed">ইউরোপ</small>
                         <small className="text-white">২১ এপ্রিল ২০২২</small>
                       </div>
-                      <h3>
-                        পুতিনের সঙ্গে কথা বলা মানে কুমিরের মুখে পা দেওয়া: বরিস
-                        জনসন
-                      </h3>
+                      <div
+                        style={{ paddingTop: '50px' }}
+                        className="text-light text-center"
+                        dangerouslySetInnerHTML={{
+                          __html: editorPic[2]?.description,
+                        }}
+                      ></div>
                       <div className="documentaryEditors__content-overlay-content-icon">
                         <div className="mx-3">
                           <BiTimeFive className="me-1" />১ ঘণ্টা আগে
@@ -205,122 +155,19 @@ const DocumentaryEditors = () => {
                   <div className="documentaryBanner__content">
                     <img
                       className="documentaryBanner__content-img"
-                      src={documentaryImg2}
-                      alt=""
+                      src={`https://api.bestaid.com.bd/${editorPic[3]?.image}`}
+                      alt=".."
                     />
                     <div
                       style={{ paddingTop: '150px' }}
                       className="documentaryBanner__content-overlay"
                     >
-                      <h3>
-                        পুতিনের সঙ্গে কথা বলা মানে কুমিরের মুখে পা দেওয়া: বরিস
-                        জনসন
-                      </h3>
-                      <div className="documentaryBanner__content-overlay-content-icon size">
-                        <div className="mx-3">
-                          <BiTimeFive className="me-1" />১ ঘণ্টা আগে
-                        </div>
-                        <div className="mx-3">
-                          <AiOutlineEye className="me-1" />
-                          ১০০০
-                        </div>
-                        <div className="mx-3">
-                          <BiComment className="me-1" />
-                          ৪৭
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="d-flex">
-            <div className="w-50">
-              <iframe
-                width="100%"
-                height="590"
-                src="https://www.youtube.com/embed/4ykAepVkG5Y"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <div className="w-50">
-              <div className="d-flex flex-wrap">
-                <div className="w-50">
-                  <div className="documentaryEditors__content">
-                    <img className="img-fluid" src={topStories} alt="" />
-                    <div className="documentaryEditors__content-overlay">
-                      <div className="documentaryEditors__content-overlay-content">
-                        <small className="customRed">ইউরোপ</small>
-                        <small className="text-white">২১ এপ্রিল ২০২২</small>
-                      </div>
-                      <h3>
-                        পুতিনের সঙ্গে কথা বলা মানে কুমিরের মুখে পা দেওয়া: বরিস
-                        জনসন
-                      </h3>
-                      <div className="documentaryEditors__content-overlay-content-icon">
-                        <div className="mx-2">
-                          <BiTimeFive className="me-1" />১ ঘণ্টা আগে
-                        </div>
-                        <div className="mx-2">
-                          <AiOutlineEye className="me-1" />
-                          ১০০০
-                        </div>
-                        <div className="mx-2">
-                          <BiComment className="me-1" />
-                          ৪৭
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-50">
-                  <div className="documentaryEditors__content">
-                    <img className="img-fluid" src={topStories} alt="" />
-                    <div className="documentaryEditors__content-overlay">
-                      <div className="documentaryEditors__content-overlay-content">
-                        <small className="customRed">ইউরোপ</small>
-                        <small className="text-white">২১ এপ্রিল ২০২২</small>
-                      </div>
-                      <h3>
-                        পুতিনের সঙ্গে কথা বলা মানে কুমিরের মুখে পা দেওয়া: বরিস
-                        জনসন
-                      </h3>
-                      <div className="documentaryEditors__content-overlay-content-icon">
-                        <div className="mx-3">
-                          <BiTimeFive className="me-1" />১ ঘণ্টা আগে
-                        </div>
-                        <div className="mx-3">
-                          <AiOutlineEye className="me-1" />
-                          ১০০০
-                        </div>
-                        <div className="mx-3">
-                          <BiComment className="me-1" />
-                          ৪৭
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-100">
-                  <div className="documentaryBanner__content">
-                    <img
-                      className="documentaryBanner__content-img"
-                      src={documentaryImg2}
-                      alt=""
-                    />
-                    <div
-                      style={{ paddingTop: '150px' }}
-                      className="documentaryBanner__content-overlay"
-                    >
-                      <h3>
-                        পুতিনের সঙ্গে কথা বলা মানে কুমিরের মুখে পা দেওয়া: বরিস
-                        জনসন
-                      </h3>
+                      <div
+                        className="text-light"
+                        dangerouslySetInnerHTML={{
+                          __html: editorPic[3]?.description,
+                        }}
+                      ></div>
                       <div className="documentaryBanner__content-overlay-content-icon size">
                         <div className="mx-3">
                           <BiTimeFive className="me-1" />১ ঘণ্টা আগে

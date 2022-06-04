@@ -1,12 +1,11 @@
 .documentaryBanner,
 .documentaryTopStories {
-  margin-top: 80px;
+  padding-bottom: 100px;
 }
 
 .documentaryBanner__content,
 .documentaryTopStories__content {
   position: relative;
-  margin-bottom: 34px;
 }
 
 .documentaryTopStories__content {
@@ -138,7 +137,7 @@
 .documentaryTopTrending__content-custom {
   position: absolute;
   bottom: 10px;
-  left: 55px;
+  left: 65px;
   font-size: 10px;
   color: #f1f1f1;
 }
@@ -209,5 +208,26 @@
 
 .slick-prev,
 .slick-next {
-  top: 100%;
+  top: 110%;
+}
+/* Modified */
+.modal-content {
+  background-color: transparent !important;
+  border: 1px solid rgba(0, 0, 0, 0);
+  width: 800px !important;
+  height: 100vh;
+}
+.text__position {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+}
+.align h1 {
+  font-size: 30px;
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 800px;
+    margin: 1.75rem auto;
+  }
 }
