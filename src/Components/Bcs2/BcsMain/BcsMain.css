@@ -1,0 +1,103 @@
+.bcsBanner {
+  background: url(../../../images/bcsbanner.png) no-repeat center;
+  background-size: cover;
+
+  margin: 60px 0;
+}
+
+.bcsBanner__overlay {
+  width: 100%;
+  height: 100% !important;
+  padding-top: 126px;
+  background: linear-gradient(8deg, rgba(0, 0, 0, 10) 25%, transparent 100%),
+    linear-gradient(100deg, rgba(0, 0, 0, 0.7), transparent 44%);
+}
+
+.bcsBanner__overlay img,
+h2 {
+  padding-top: 23px;
+}
+
+.customCss:last-child {
+  transform: translateY(10px);
+}
+
+.quize__model {
+  transition: 0.4s;
+  overflow-y: scroll !important;
+}
+
+.quize__model,
+.quize__overlay {
+  width: 100vw;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+}
+
+.quize__overlay {
+  background: rgba(49, 49, 49, 0.7);
+}
+
+.quize {
+  padding-bottom: 100px;
+}
+
+.quize__model_content {
+  background: white;
+  position: absolute;
+  top: 0%;
+  left: 10%;
+
+  line-height: 1.4;
+  background: #f1f1f1;
+  border-radius: 5px;
+  width: 924px;
+  height: auto;
+}
+
+.active-modal {
+  overflow-y: hidden !important;
+}
+
+.custom-radio-btn {
+  width: 20px !important;
+  height: 20px !important;
+  border: 2px solid #444;
+  border-radius: 50%;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 20px 0;
+}
+.custom-radio-btn .checkmark {
+  width: calc(100% - 5px);
+  height: calc(100% - 5px);
+  display: none;
+  background-color: #dc3545;
+  border-radius: 50%;
+}
+
+.custom-radio-btn input {
+  display: none;
+}
+
+.custom-radio-btn input:checked + .checkmark {
+  display: inline-block;
+}
+
+.custom-radio-btn p {
+  position: absolute;
+  top: -2px;
+  left: 30px;
+  width: 180px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}

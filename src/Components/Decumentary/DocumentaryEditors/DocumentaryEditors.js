@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { AiOutlineEye } from 'react-icons/ai';
 import { BiComment, BiTimeFive } from 'react-icons/bi';
-import { BsFillPlayCircleFill } from 'react-icons/bs';
+import { BsFillPlayCircleFill } from "react-icons/bs";
 import Slider from 'react-slick';
 
-const DocumentaryEditors = ({ editorPic }) => {
+const DocumentaryEditors = ({editorPic}) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-
+  
   const settings = {
     dots: true,
     infinite: true,
@@ -21,14 +21,9 @@ const DocumentaryEditors = ({ editorPic }) => {
   return (
     <div className="documentaryEditors">
       <div className="container">
-        <Modal
-          className="bg-transparent"
-          centered
-          show={show}
-          onHide={handleClose}
-        >
-          <Modal.Body>
-            <iframe
+      <Modal className="bg-transparent" centered show={show} onHide={handleClose}>
+        <Modal.Body>
+        <iframe
               className="documentaryBanner-youtube w-100 h-100"
               src="https://www.youtube.com/embed/6eOCceaS9h0"
               title="YouTube video player"
@@ -36,8 +31,8 @@ const DocumentaryEditors = ({ editorPic }) => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-          </Modal.Body>
-        </Modal>
+        </Modal.Body>
+          </Modal>
         <div className="shorboshesh__title text-center py-4 mb-3">
           <h1
             className="shorboshesh__title__paragraph"
@@ -49,57 +44,25 @@ const DocumentaryEditors = ({ editorPic }) => {
         <Slider {...settings}>
           <div className="d-flex">
             <div className="w-50">
-              <div className="position-relative h-100">
-                <img
-                  src={`https://api.bestaid.com.bd/${editorPic[0]?.image}`}
-                  alt="imag"
-                  className="img-fluid"
-                />
-                <div
-                  style={{
-                    background: 'rgb(0 0 0 / 73%)',
-                  }}
-                  className="overlay position-absolute top-50 start-50 translate-middle w-100 h-100"
-                >
-                  <div className="documentaryEditors__content-overlay-content pt-5  px-4">
-                    <small className="customRed">ইউরোপ</small>
-                    <small className="text-white">২১ এপ্রিল ২০২২</small>
-                  </div>
-                  <BsFillPlayCircleFill
-                    onClick={() => setShow(true)}
-                    className="fs-1 text-danger position-absolute top-50 start-50 transform-middle"
-                  />
-                  <br />
-                  <div
-                    className="text-light text__position"
-                    dangerouslySetInnerHTML={{
-                      __html: editorPic[0]?.sub_title,
-                    }}
-                  ></div>
-                </div>
-              </div>
+            <div className='position-relative'>
+            <img src={`https://api.bestaid.com.bd/${editorPic[0]?.image}`} alt="image" className='img-fluid'/>
+            <div style={{background: "rgb(0 0 0 / 73%)"}} className="overlay position-absolute top-50 start-50 translate-middle w-100 h-100 d-flex justify-content-center align-items-center"><BsFillPlayCircleFill onClick={()=>setShow(true)} className='fs-2 text-danger'/>
+            <br />
+            <div className='text-light text__position align' dangerouslySetInnerHTML={{__html:editorPic[0]?.description}}></div>
+            </div>
+          </div>
             </div>
             <div className="w-50">
               <div className="d-flex flex-wrap">
                 <div className="w-50">
                   <div className="documentaryEditors__content">
-                    <img
-                      className="img-fluid"
-                      src={`https://api.bestaid.com.bd/${editorPic[1]?.image}`}
-                      alt=""
-                    />
+                    <img className="img-fluid" src={`https://api.bestaid.com.bd/${editorPic[1]?.image}`} alt="" />
                     <div className="documentaryEditors__content-overlay">
                       <div className="documentaryEditors__content-overlay-content">
                         <small className="customRed">ইউরোপ</small>
                         <small className="text-white">২১ এপ্রিল ২০২২</small>
                       </div>
-                      <div
-                        style={{ paddingTop: '50px' }}
-                        className="text-light text-center"
-                        dangerouslySetInnerHTML={{
-                          __html: editorPic[1]?.description,
-                        }}
-                      ></div>
+                      <div style={{ paddingTop: '50px' }} className='text-light text-center' dangerouslySetInnerHTML={{__html:editorPic[1]?.description}}></div>
                       <div className="documentaryEditors__content-overlay-content-icon">
                         <div className="mx-2">
                           <BiTimeFive className="me-1" />১ ঘণ্টা আগে
@@ -118,23 +81,13 @@ const DocumentaryEditors = ({ editorPic }) => {
                 </div>
                 <div className="w-50">
                   <div className="documentaryEditors__content">
-                    <img
-                      className="img-fluid"
-                      src={`https://api.bestaid.com.bd/${editorPic[2]?.image}`}
-                      alt=""
-                    />
+                    <img className="img-fluid" src={`https://api.bestaid.com.bd/${editorPic[2]?.image}`} alt="" />
                     <div className="documentaryEditors__content-overlay">
                       <div className="documentaryEditors__content-overlay-content">
                         <small className="customRed">ইউরোপ</small>
                         <small className="text-white">২১ এপ্রিল ২০২২</small>
                       </div>
-                      <div
-                        style={{ paddingTop: '50px' }}
-                        className="text-light text-center"
-                        dangerouslySetInnerHTML={{
-                          __html: editorPic[2]?.description,
-                        }}
-                      ></div>
+                      <div style={{ paddingTop: '50px' }} className='text-light text-center' dangerouslySetInnerHTML={{__html:editorPic[2]?.description}}></div>
                       <div className="documentaryEditors__content-overlay-content-icon">
                         <div className="mx-3">
                           <BiTimeFive className="me-1" />১ ঘণ্টা আগে
@@ -162,12 +115,7 @@ const DocumentaryEditors = ({ editorPic }) => {
                       style={{ paddingTop: '150px' }}
                       className="documentaryBanner__content-overlay"
                     >
-                      <div
-                        className="text-light"
-                        dangerouslySetInnerHTML={{
-                          __html: editorPic[3]?.description,
-                        }}
-                      ></div>
+                      <div className='text-light' dangerouslySetInnerHTML={{__html:editorPic[3]?.description}}></div>
                       <div className="documentaryBanner__content-overlay-content-icon size">
                         <div className="mx-3">
                           <BiTimeFive className="me-1" />১ ঘণ্টা আগে

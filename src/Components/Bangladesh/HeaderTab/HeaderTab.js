@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Slider from 'react-slick';
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import { HeaderTabCard } from '../BangladeshImport/BangladeshImport';
 
 const HeaderTab = (props) => {
@@ -11,6 +10,35 @@ const HeaderTab = (props) => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    responsive: [
+
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: true,
+        }
+      }
+    ]
   };
 
   return (
@@ -27,7 +55,7 @@ const HeaderTab = (props) => {
       {props?.item?.map((item, index) => {
         return (
           <TabPanel key={index}>
-            <div className="container">
+            <div className="container mb-5">
               {props?.item[index]?.post.length < 1 && (
                 <h3 className="text-center fw-bold text-uppercase text-muted py-5">
                   No Image

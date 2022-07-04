@@ -48,13 +48,12 @@ h2 {
 .quize__model_content {
   background: white;
   position: absolute;
-  top: 0%;
-  left: 10%;
-
+  top: 10%;
+  left: 20%;
   line-height: 1.4;
   background: #f1f1f1;
   border-radius: 5px;
-  width: 924px;
+  width: 724px;
   height: auto;
 }
 
@@ -100,4 +99,8 @@ h2 {
 .form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.form .custom-radio-btn {
+  cursor: pointer !important;
 }

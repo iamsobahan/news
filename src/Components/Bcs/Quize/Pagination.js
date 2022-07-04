@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaLongArrowAltRight } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 
 const Pagination = (props) => {
   const { nextButton, prevButton, currentPage, totalPage } = props;
@@ -22,14 +21,23 @@ const Pagination = (props) => {
           </button>
         </li>
         <li>
-          <button
-            disabled={currentPage === totalPage && 'disabled'}
-            className="fs-4 border-0"
-            onClick={() => nextButton()}
-          >
-            পরবর্তী পৃষ্ঠা
-            <FaLongArrowAltRight className="ms-2 fs-3 " />
-          </button>
+          {currentPage === totalPage ? (
+            <button
+              onClick={() => nextButton()}
+              className="btn customRedBg text-white"
+            >
+              submit
+            </button>
+          ) : (
+            <button
+              // disabled={currentPage === totalPage && 'disabled'}
+              className="fs-4 border-0"
+              onClick={() => nextButton()}
+            >
+              পরবর্তী পৃষ্ঠা
+              <FaLongArrowAltRight className="ms-2 fs-3 " />
+            </button>
+          )}
         </li>
       </ul>
     </div>

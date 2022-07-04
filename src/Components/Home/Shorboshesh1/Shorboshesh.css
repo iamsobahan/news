@@ -1,0 +1,18 @@
+.shorboshesh {
+  padding: 60px 0;
+}
+
+.shorboshesh__title {
+  position: relative;
+}
+
+.shorboshesh__title::after {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  width: 100%;
+  height: 2px;
+
+  background: #ff2828;
+  content: '';
+}

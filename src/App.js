@@ -1,4 +1,5 @@
 import './App.css';
+import './assets/css/responsive.css';
 import Header from './Components/Home/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Components/Home/Footer/Footer';
@@ -9,10 +10,13 @@ import Details from './Components/Details/Details';
 import { DocumentaryMain } from './Components/Decumentary/DocumentaryImport/DocumentaryImport';
 import { JobMain } from './Components/Job/JobImport/JobImport';
 import { BcsMain } from './Components/Bcs/BcsImport/BcsImport';
-
+import QuizeResult from './Components/Bcs/Quize/QuizeResult';
+import Navigation from './Components/Navigation/Navigation';
+import AroNewsAll from './Components/AroNewsAll/AroNewsAll';
 function App() {
   return (
     <>
+      <Navigation />
       <Header />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
@@ -21,6 +25,8 @@ function App() {
         <Route path="/documentary" element={<DocumentaryMain />} />
         <Route path="/jobs" element={<JobMain />} />
         <Route path="/bcs" element={<BcsMain />} />
+        <Route path="/quize" element={<QuizeResult />} />
+        <Route path="/aro-news-all" element={<AroNewsAll />} />
         <Route path="/details/:id" element={<Details />} />
       </Routes>
       <Footer />

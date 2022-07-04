@@ -1,0 +1,129 @@
+@media (min-width: 320px) and (max-width: 575px) {
+  .mobileDeviceApps {
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .aro__contents {
+    height: auto !important;
+    flex-direction: column;
+  }
+  .shorboshesh .text-area {
+    display: flex;
+    justify-content: space-between;
+  }
+  .text-heading {
+    padding-bottom: 14px !important;
+  }
+  .sub-heading {
+    padding-top: 0 !important;
+    font-size: 14px;
+  }
+
+  .shorbosheshSlide .d-flex {
+    flex-wrap: wrap;
+  }
+  .shorbosheshSlide img {
+    width: 100%;
+  }
+  .shorbosheshSlide .w-25 {
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+  }
+  .shorbosheshSlide .w-75 {
+    width: 100% !important;
+  }
+  .videoShongbad .mt-5 {
+    margin-top: 1rem !important;
+  }
+  .bcsBanner__overlay {
+    padding-bottom: 15px;
+    padding-top: 15px !important;
+  }
+  .binodon img {
+    width: 100%;
+  }
+
+  .jobBannerLeft__mobile {
+    width: 100% !important;
+  }
+
+  .jobBannerLeft {
+    position: relative;
+  }
+
+  .documentaryBanner__content__middle {
+    padding-top: 50px !important;
+  }
+
+  .documentaryBanner__content-overlay {
+    width: 100% !important;
+  }
+
+  .documentaryEditors__content button {
+    display: none !important;
+  }
+  .job-container {
+    flex-wrap: wrap;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  .job-container img {
+    width: 100%;
+  }
+  .jobs h2 {
+    font-weight: 600;
+    font-size: 16px;
+    width: 80% !important;
+    font-weight: 400;
+  }
+  .jobSearchSlider {
+    padding: 50px 0 !important;
+    padding-bottom: 20px !important;
+  }
+  .jobSearchSlider .slick-dots {
+    bottom: -20px !important;
+  }
+  .jobSearchSlider .slick-slider {
+    text-align: center;
+  }
+  .jobs .py-5 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  .inputIconMain {
+    margin-top: 20px;
+  }
+
+  .inputIconMain input {
+    padding: 8px 20px;
+  }
+  .documentaryEditors__content-overlay h3 {
+    font-size: 16px;
+  }
+  footer svg {
+    font-size: 20px !important;
+  }
+  footer .py-5 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  footer .mb-4 {
+    margin-bottom: 1rem !important;
+  }
+  footer .footer-icon-card {
+    flex-direction: column;
+  }
+  footer .footer-icon-card .item {
+    margin-bottom: 10px;
+  }
+  footer .links {
+    margin-top: 20px;
+  }
+  footer .app-title {
+    margin-bottom: 15px !important;
+  }
+}

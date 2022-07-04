@@ -41,23 +41,20 @@ const DocumentaryTopTrending = ({ tending }) => {
           <div className="col-lg-6">
             <div className="position-relative">
               <img
+                className="w-100"
                 src={`https://api.bestaid.com.bd/${tending[0]?.image}`}
                 alt="imag"
-                className="w-100"
               />
               <div
                 style={{ background: 'rgb(0 0 0 / 73%)' }}
-                className="overlay position-absolute top-50 start-50 translate-middle w-100 h-100 d-flex justify-content-center align-items-center flex-column"
+                className="overlay position-absolute top-50 start-50 translate-middle w-100 h-100 d-flex justify-content-center align-items-center"
               >
                 <BsFillPlayCircleFill
                   onClick={() => setShow(true)}
                   className="fs-2 text-danger"
                 />
                 <br />
-                <div
-                  className="text-light"
-                  dangerouslySetInnerHTML={{ __html: tending[0]?.sub_title }}
-                ></div>
+                {/* <div className='text-light text__position align' dangerouslySetInnerHTML={{__html:data[2]?.description}}></div> */}
               </div>
             </div>
             <div className="d-flex pt-2 size">
@@ -73,14 +70,20 @@ const DocumentaryTopTrending = ({ tending }) => {
                 ৪৭
               </div>
             </div>
-            <h2
-              className="py-3 black fw-bolder"
-              dangerouslySetInnerHTML={{ __html: tending[0]?.sub_title }}
-            ></h2>
-            <p
-              className="black"
-              dangerouslySetInnerHTML={{ __html: tending[0]?.description }}
-            ></p>
+            <h2 className="py-3 black fw-bolder">
+              লাহোরে সমাবেশ, ইসলামাবাদে আসার প্রস্তুতি নিতে বললেন ইমরান
+            </h2>
+            <p className="black">
+              লাহোরে ব্যাপক জনসমাগমের মধ্য দিয়ে আরও একবার দলের শক্তি প্রদর্শন
+              করল পাকিস্তান তেহরিক-ই-ইনসাফ (পিটিআই)। এবার রাজধানী ইসলামাবাদে
+              আসতে নেতা–কর্মীসহ সাধারণ জনগণকে প্রস্তুত থাকতে বলেছেন দলের
+              চেয়ারম্যান ও সাবেক প্রধানমন্ত্রী ইমরান খান। গতকাল বৃহস্পতিবার
+              পিটিআইয়ের বহুল আলোচিত এই সমাবেশে লাহোরের গ্রেটার ইকবাল পার্কে
+              নারী-পুরুষ, শিশু, বয়োজ্যেষ্ঠসহ হাজারো মানুষ অংশ নেন। তাঁরা
+              স্লোগানে স্লোগানে সাবেক প্রধানমন্ত্রী ইমরান খানের প্রতি সমর্থন
+              জানান। বিদেশি প্রভুদের ছড়ি ঘোরানোর প্রতিবাদ জানান। সার্বভৌমত্ব ও
+              আত্মসম্মানবোধের প্রতি সমর্থন জানান।
+            </p>
           </div>
           <div className="col-lg-6">
             {tending.map((content) => (
@@ -116,9 +119,7 @@ const DocumentaryTopTrending = ({ tending }) => {
                   </div>
                 </div>
                 <div className="ms-4">
-                  <h3
-                    dangerouslySetInnerHTML={{ __html: content.sub_title }}
-                  ></h3>
+                  <h3>{content.title}</h3>
                   <div className="black d-flex size">
                     <div className="me-3">
                       <BiTimeFive className="me-1" />১ ঘণ্টা আগে
@@ -132,11 +133,9 @@ const DocumentaryTopTrending = ({ tending }) => {
                       ৪৭
                     </div>
                   </div>
-                  <p
-                    style={{ fontSize: '12px' }}
-                    className="black mt-4"
-                    dangerouslySetInnerHTML={{ __html: content.description }}
-                  ></p>
+                  <p style={{ fontSize: '12px' }} className="black mt-4">
+                    {content.sub_title}
+                  </p>
                 </div>
               </div>
             ))}

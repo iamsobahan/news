@@ -5,6 +5,7 @@ import { Form, ProgressBar } from 'react-bootstrap';
 import Quizes from './Quizes';
 import Pagination from './Pagination';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const quiz = [
   {
@@ -122,42 +123,43 @@ const Quize = () => {
   let [currentPage, setCurrentPage] = useState(1);
   let perPageQuiz = 4;
   const [answer, setAnswer] = useState({});
-  console.log(answer);
+
   function changeHandler(e) {
     setAnswer((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
+    return e.target.value;
   }
 
-  const totalPage = data.length / perPageQuiz;
+  const totalPage = Math.ceil(data.length / perPageQuiz);
 
   const [modal, setModal] = useState(false);
-  //   let [second, setSecond] = useState(60);
-  //   let [minute, setMinute] = useState(60);
+  let [second, setSecond] = useState(60);
+  let [minute, setMinute] = useState(60);
 
   const toggleModel = () => {
     setModal(!modal);
 
-    // setInterval(() => {
-    //   setTimeout(() => {
-    //     setMinute(minute - 1);
-    //     second = second - 1;
+    setInterval(() => {
+      setTimeout(() => {
+        setMinute(minute - 1);
+        second = second - 1;
 
-    //     if (second <= 9 && second >= 0) {
-    //       second = '0' + second;
-    //     }
-    //     if (second < 0) {
-    //       second = 60;
-    //     }
+        if (second <= 9 && second >= 0) {
+          second = '0' + second;
+        }
+        if (second < 0) {
+          second = 60;
+        }
 
-    //     if (second >= 60) {
-    //       minute = minute - 1;
-    //       setMinute(minute);
-    //     }
-    //     setSecond(second);
-    //   }, 1000);
-    // }, 1000);
+        if (second >= 60) {
+          minute = minute - 1;
+          setMinute(minute);
+        }
+        setSecond(second);
+      }, 1000);
+    }, 1000);
   };
 
   if (modal) {
@@ -182,13 +184,17 @@ const Quize = () => {
     document.querySelector('.quize__model').scrollTo(0, 0);
   };
 
+  const clickHandler = () => {
+    setModal(false);
+    setCurrentPage(1);
+  };
+
   return (
     <>
       <div className="quize" id="quize">
         <div className="container">
           <div className="shorboshesh__title text-center py-4">
             <h1
-              onClick={toggleModel}
               className="shorboshesh__title__paragraph"
               style={{ fontWeight: '700' }}
             >
@@ -208,27 +214,57 @@ const Quize = () => {
           </div>
         </div>
       </div>
+
       {modal && (
         <div className="quize__model">
           <div className="quize__overlay"></div>
-          <div className="quize__model_content slide-bottom p-5 shadow-lg">
-            <h3 onClick={toggleModel} className="text-center fw-bolder">
-              বিসিএস প্রস্তুতি কুইজ
-            </h3>
-            <div className="d-flex justify-content-between pt-5">
-              <p className="fw-bolder">
-                <RiTimerLine className="me-2" />
-                {/* {minute} : {second} */}
-                ৫৮ঃ২০
-              </p>
 
-              <div className="d-flex">
-                <div style={{ width: '100px', marginRight: '20px' }}>
-                  <ProgressBar variant="danger" now={90} label={`${90}%`} />
+          <div className="quize__model_content slide-bottom p-5 shadow-lg">
+            {currentPage <= totalPage && (
+              <h3 onClick={toggleModel} className="text-center fw-bolder">
+                বিসিএস প্রস্তুতি কুইজ
+              </h3>
+            )}
+            <div className="d-flex justify-content-between pt-5">
+              {currentPage <= totalPage && (
+                <p className="fw-bolder">
+                  <RiTimerLine className="me-2" />
+                  {minute} : {second}
+                </p>
+              )}
+              {currentPage <= totalPage && (
+                <div className="d-flex">
+                  <div style={{ width: '100px', marginRight: '20px' }}>
+                    <ProgressBar
+                      variant="danger"
+                      now={Math.round(
+                        (Object.keys(answer).length * 100) / data.length
+                      )}
+                      label={`${Math.round(
+                        (Object.keys(answer).length * 100) / data.length
+                      )}%`}
+                    />
+                  </div>
+                  <BsFlag className="fs-3" />
                 </div>
-                <BsFlag className="fs-3" />
-              </div>
+              )}
             </div>
+
+            {currentPage > totalPage && (
+              <div className="text-center py-5">
+                <h3 className="customRed">ধন্যবাদ!</h3>
+                <h4 className="py-2">কুইজে অংশ নেওয়ার জন্য</h4>
+                <Link
+                  onClick={clickHandler}
+                  to="/quize"
+                  // onClick={() => nextButton()}
+                  style={{ borderBottom: '2px solid #ff1010' }}
+                  className="customRed"
+                >
+                  ফলাফল দেখুন
+                </Link>
+              </div>
+            )}
 
             {displayPost.map((post) => {
               return (
@@ -239,13 +275,14 @@ const Quize = () => {
                 ></Quizes>
               );
             })}
-
-            <Pagination
-              currentPage={currentPage}
-              prevButton={prevButton}
-              nextButton={nextButton}
-              totalPage={totalPage}
-            />
+            {currentPage <= totalPage && (
+              <Pagination
+                currentPage={currentPage}
+                prevButton={prevButton}
+                nextButton={nextButton}
+                totalPage={totalPage}
+              />
+            )}
           </div>
         </div>
       )}

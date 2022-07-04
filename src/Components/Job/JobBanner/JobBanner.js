@@ -8,16 +8,16 @@ import topStories from '../../../images/topStories.png';
 const JobBanner = () => {
   return (
     <div className="jobBanner mt-4">
-      <div className="d-flex">
-        <div className="w-50">
+      <div className="jobBanner__main">
+        <div className="jobBannerLeft jobBannerLeft__mobile">
           <div className="documentaryBanner__content h-100">
-            <img className="h-100" src={job} alt="" />
+            <img className="w-100 h-100" src={job} alt="" />
             <div className="documentaryBanner__content-overlay">
               <div className="documentaryEditors__content-overlay-content">
                 <small className="customRed">ইউরোপ</small>
                 <small className="text-white">২১ এপ্রিল ২০২২</small>
               </div>
-              <div style={{ paddingTop: '250px' }}>
+              <div className="documentaryBanner__content__middle">
                 <h3 className="fs-2">
                   পুতিনের সঙ্গে কথা বলা মানে কুমিরের মুখে পা দেওয়া: বরিস জনসন
                 </h3>
@@ -31,21 +31,17 @@ const JobBanner = () => {
             </div>
           </div>
         </div>
-        <div className="w-50">
+        <div className="jobBannerRight jobBannerLeft__mobile">
           <div className="d-flex flex-wrap">
             <div className="w-100">
               <div className="documentaryBanner__content mb-0">
-                <img
-                  className="documentaryBanner__content-img"
-                  src={documentaryImg2}
-                  alt=""
-                />
+                <img className="w-100 h-100" src={documentaryImg2} alt="" />
                 <div className="documentaryBanner__content-overlay">
                   <div className="d-flex justify-content-between">
                     <small className="customRed">ইউরোপ</small>
                     <small className="text-white">২১ এপ্রিল ২০২২</small>
                   </div>
-                  <div style={{ paddingTop: '120px' }}>
+                  <div className="documentaryBanner__content__middle">
                     <h3>
                       পুতিনের সঙ্গে কথা বলা মানে কুমিরের মুখে পা দেওয়া: বরিস
                       জনসন
@@ -62,7 +58,7 @@ const JobBanner = () => {
             </div>
             <div className="w-50">
               <div className="documentaryEditors__content">
-                <img className="img-fluid" src={topStories} alt="" />
+                <img className="w-100 h-100" src={topStories} alt="" />
                 <div className="documentaryEditors__content-overlay h-100">
                   <div className="documentaryEditors__content-overlay-content">
                     <small className="customRed">ইউরোপ</small>

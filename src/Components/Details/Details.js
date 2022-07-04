@@ -39,7 +39,11 @@ const Details = () => {
             বাজার সৃষ্টির লক্ষ্যে যাত্রা শুরু করেছে।
           </p>
           <div className="details__img text-center my-3">
-            <img src={`https://api.bestaid.com.bd/${details?.image}`} alt="" />
+            <img
+              className="w-100 h-100"
+              src={`https://api.bestaid.com.bd/${details?.image}`}
+              alt=""
+            />
           </div>
           <div>
             <p dangerouslySetInnerHTML={{ __html: details?.description }}></p>

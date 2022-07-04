@@ -1,13 +1,11 @@
-import React from 'react';
-import shorbosheshslideImg from '../../../images/shorbo1.png';
-import shorbosheshslideImg2 from '../../../images/shorboshesh2.png';
-import shorbosheshslideImg3 from '../../../images/shorboshesh3.png';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
+import shorbosheshslideImg from '../../../images/shorbo1.png';
+
 import './Shorbosheshslider.css';
 
-const Shorbosheshslider = () => {
+const Shorbosheshslider = (props) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -16,171 +14,65 @@ const Shorbosheshslider = () => {
     autoplay: true,
     slidesToScroll: 1,
     arrows: true,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
 
-    // fade: true,
-    pauseOnDotsHover: true,
-    adaptiveHeight: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: true,
+        },
+      },
+    ],
   };
   return (
     <div className="shorbosheshSlide">
       <div className="container">
         <Slider {...settings}>
-          <div>
-            <div className="d-flex">
-              <div className="w-25 text-center">
-                <p className="text-danger fw-bold">রাজনীতি</p>
-                <small style={{ fontSize: '12px', fontWeight: '600' }}>
-                  ১০ মিনিট আগ
-                </small>
-              </div>
-              <div className="w-75">
-                <div>
-                  <img
-                    className="mx-auto img-fluid"
-                    src={shorbosheshslideImg}
-                    alt=""
-                  />
-                </div>
-                <div className="text-center">
-                  <h6>
-                    রাজধানীর হযরত শাহজালাল আন্তর্জাতিক বিমানবন্দর এলাকা থেকে
-                    দুইজন রোহিঙ্গা ....
-                  </h6>
-                  <small>জেলে বসেই ছিনতাইয়ের পরিকল্পনা, টার্গেট ব্যবসায়ী</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="d-flex">
-              <div className="w-25 text-center">
-                <p className="text-danger fw-bold">রাজনীতি</p>
-                <small style={{ fontSize: '12px', fontWeight: '600' }}>
-                  ১০ মিনিট আগ
-                </small>
-              </div>
-              <div className="w-75">
-                <div>
-                  <img
-                    className="mx-auto img-fluid"
-                    src={shorbosheshslideImg2}
-                    alt=""
-                  />
-                </div>
-                <div className="text-center">
-                  <h6>
-                    রাজধানীর হযরত শাহজালাল আন্তর্জাতিক বিমানবন্দর এলাকা থেকে
-                    দুইজন রোহিঙ্গা ....
-                  </h6>
-                  <small>জেলে বসেই ছিনতাইয়ের পরিকল্পনা, টার্গেট ব্যবসায়ী</small>
+          {props.ShorbosheshsliderData.map((item) => {
+            return (
+              <div>
+                <div className="d-flex">
+                  <div className="w-25 text-center">
+                    <p className="text-danger fw-bold">রাজনীতি</p>
+                    <small style={{ fontSize: '12px', fontWeight: '600' }}>
+                      ১০ মিনিট আগ
+                    </small>
+                  </div>
+                  <div className="w-75">
+                    <div>
+                      <img
+                        className="mx-auto img-fluid"
+                        src={`https://api.bestaid.com.bd/${item.image}`}
+                        alt=""
+                      />
+                    </div>
+                    <div className="text-center">
+                      <h6>{item.title}</h6>
+                      <small>{item.sub_title}</small>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div>
-            <div className="d-flex">
-              <div className="w-25 text-center">
-                <p className="text-danger fw-bold">রাজনীতি</p>
-                <small style={{ fontSize: '12px', fontWeight: '600' }}>
-                  ১০ মিনিট আগ
-                </small>
-              </div>
-              <div className="w-75">
-                <div>
-                  <img
-                    className="mx-auto img-fluid"
-                    src={shorbosheshslideImg3}
-                    alt=""
-                  />
-                </div>
-                <div className="text-center">
-                  <h6>
-                    রাজধানীর হযরত শাহজালাল আন্তর্জাতিক বিমানবন্দর এলাকা থেকে
-                    দুইজন রোহিঙ্গা ....
-                  </h6>
-                  <small>জেলে বসেই ছিনতাইয়ের পরিকল্পনা, টার্গেট ব্যবসায়ী</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="d-flex">
-              <div className="w-25 text-center">
-                <p className="text-danger fw-bold">বিনোদন</p>
-                <small style={{ fontSize: '12px', fontWeight: '600' }}>
-                  ১০ মিনিট আগ
-                </small>
-              </div>
-              <div className="w-75">
-                <div>
-                  <img
-                    className="mx-auto img-fluid"
-                    src={shorbosheshslideImg}
-                    alt=""
-                  />
-                </div>
-                <div className="text-center">
-                  <h6>
-                    রাজধানীর হযরত শাহজালাল আন্তর্জাতিক বিমানবন্দর এলাকা থেকে
-                    দুইজন রোহিঙ্গা ....
-                  </h6>
-                  <small>জেলে বসেই ছিনতাইয়ের পরিকল্পনা, টার্গেট ব্যবসায়ী</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="d-flex">
-              <div className="w-25 text-center">
-                <p className="text-danger fw-bold">বিজ্ঞান</p>
-                <small style={{ fontSize: '12px', fontWeight: '600' }}>
-                  ১০ মিনিট আগ
-                </small>
-              </div>
-              <div className="w-75">
-                <div>
-                  <img
-                    className="mx-auto img-fluid"
-                    src={shorbosheshslideImg2}
-                    alt=""
-                  />
-                </div>
-                <div className="text-center">
-                  <h6>
-                    রাজধানীর হযরত শাহজালাল আন্তর্জাতিক বিমানবন্দর এলাকা থেকে
-                    দুইজন রোহিঙ্গা ....
-                  </h6>
-                  <small>জেলে বসেই ছিনতাইয়ের পরিকল্পনা, টার্গেট ব্যবসায়ী</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="d-flex">
-              <div className="w-25 text-center">
-                <p className="text-danger fw-bold">বানিজ্য</p>
-                <small style={{ fontSize: '12px', fontWeight: '600' }}>
-                  ১০ মিনিট আগ
-                </small>
-              </div>
-              <div className="w-75">
-                <div>
-                  <img
-                    className="mx-auto img-fluid"
-                    src={shorbosheshslideImg3}
-                    alt=""
-                  />
-                </div>
-                <div className="text-center">
-                  <h6>
-                    রাজধানীর হযরত শাহজালাল আন্তর্জাতিক বিমানবন্দর এলাকা থেকে
-                    দুইজন রোহিঙ্গা ....
-                  </h6>
-                  <small>জেলে বসেই ছিনতাইয়ের পরিকল্পনা, টার্গেট ব্যবসায়ী</small>
-                </div>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </Slider>
       </div>
     </div>

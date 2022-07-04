@@ -9,7 +9,7 @@ const DocumentaryBanner = ({ data }) => {
   const handleClose = () => setShow(false);
 
   return (
-    <div className="documentaryBanner mt-5">
+    <div className="documentaryBanner">
       <div className="container">
         <Modal
           className="bg-transparent"
@@ -30,27 +30,23 @@ const DocumentaryBanner = ({ data }) => {
         </Modal>
         <div className="row">
           <div className="col-lg-7 col-md-7 col-sm-12 mb-2">
-            <div className="position-relative h-100">
+            <div className="position-relative">
               <img
                 src={`https://api.bestaid.com.bd/${data[0]?.image}`}
-                alt="imag"
+                alt="image"
                 className="img-fluid"
               />
               <div
-                style={{ background: 'rgb(0 0 0 / 73%)', paddingBottom: '50%' }}
-                className="overlay position-absolute top-50 start-50 translate-middle w-100 h-100"
+                style={{ background: 'rgb(0 0 0 / 73%)' }}
+                className="overlay position-absolute top-50 start-50 translate-middle w-100 h-100 d-flex justify-content-center align-items-center"
               >
-                <div className="documentaryBanner__content-overlay-content px-5 py-5">
-                  <small className="customRed">বাংলাদেশ</small>
-                  <small className="text-white">২১ এপ্রিল ২০২২</small>
-                </div>
                 <BsFillPlayCircleFill
                   onClick={() => setShow(true)}
-                  className="fs-1 text-danger position-absolute top-50 start-50"
+                  className="fs-2 text-danger"
                 />
                 <br />
                 <div
-                  className="text-light  text-center"
+                  className="text-light text__position align"
                   dangerouslySetInnerHTML={{ __html: data[2]?.description }}
                 ></div>
               </div>
@@ -88,7 +84,7 @@ const DocumentaryBanner = ({ data }) => {
                   </div>
                 </div>
               </div>
-              <div className="documentaryBanner__content mt-4">
+              <div className="documentaryBanner__content">
                 <img
                   className="documentaryBanner__content-img"
                   src={`https://api.bestaid.com.bd/${data[2]?.image}`}

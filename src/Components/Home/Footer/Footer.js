@@ -22,7 +22,7 @@ function Footer() {
               <p className="pt-4">সমস্ত অধিকার সংরক্ষিত</p>
               <img className="mb-4 pb-4" src={FooterHighlight} alt="" />
               <p>সময় মোবাইল অ্যাপ ডাউনলোড করুন</p>
-              <div className="d-flex">
+              <div className="d-flex mobileDeviceApps">
                 <div className="d-inline me-2">
                   <div className="d-flex justify-content-between align-items-center border border-2 border-dark p-2 d-inline rounded w-200 bg-dark text-light">
                     <div>

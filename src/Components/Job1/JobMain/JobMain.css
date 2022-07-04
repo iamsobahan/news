@@ -1,0 +1,71 @@
+.jobSearch {
+  padding-top: 118px;
+}
+
+.inputIconMain input {
+  position: relative;
+  padding: 8px 350px;
+  border: 3px solid black !important;
+}
+
+.inputIconMain input:focus {
+  outline: none;
+
+  box-shadow: none;
+}
+.inputIcon {
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  z-index: 9999;
+  font-size: 20px;
+}
+.inputIconMain input::placeholder {
+  color: black;
+  font-weight: 500;
+}
+
+.jobSearchSlider {
+  padding: 100px 0;
+}
+
+.jobSearchSlider .slick-prev,
+.slick-next {
+  top: 110%;
+}
+
+.jobSearchSlider .slick-dots {
+  bottom: -80px;
+}
+
+.jobSearchSlider__main {
+  position: relative;
+  width: 90% !important;
+  margin: 0 auto !important;
+}
+
+.jobSearchSlider__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 86px 0;
+  color: white;
+  background: linear-gradient(8deg, rgba(0, 0, 0, 10) 35%, transparent 80%),
+    linear-gradient(100deg, rgba(0, 0, 0, 0.7), transparent 44%);
+  text-align: center;
+}
+
+.jobs h2 {
+  width: 630px;
+  font-weight: 600;
+}
+
+.jobs small {
+  font-weight: 500;
+}
+
+.jobs ul li {
+  margin: 20px 0;
+}

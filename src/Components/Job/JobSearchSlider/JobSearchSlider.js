@@ -1,4 +1,3 @@
-import React from 'react';
 import Slider from 'react-slick/lib/slider';
 import jobslide from '../../../images/jobslider.png';
 
@@ -11,6 +10,35 @@ const JobSearchSlider = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    responsive: [
+
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: true,
+        }
+      }
+    ]
   };
   return (
     <div className="jobSearchSlider">

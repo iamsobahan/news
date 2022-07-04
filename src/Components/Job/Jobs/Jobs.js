@@ -1,8 +1,7 @@
-import React from 'react';
-import job1 from '../../../images/jobs.png';
-import dot from '../../../images/dot.png';
-import { Link } from 'react-router-dom';
 import { FaLongArrowAltRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import dot from '../../../images/dot.png';
+import job1 from '../../../images/jobs.png';
 
 const Jobs = () => {
   return (
@@ -14,9 +13,9 @@ const Jobs = () => {
               <div className="col-lg-12 py-5">
                 <div
                   style={{ borderRadius: '10px' }}
-                  className="d-flex align-items-center customBgColor border p-4 px-5"
+                  className="d-flex job-container align-items-center customBgColor border p-4 px-5"
                 >
-                  <img className="img-fluid me-5" src={job1} alt="" />
+                  <img className="img-fluid me-lg-5" src={job1} alt="" />
                   <div>
                     <div className="d-flex pb-4">
                       <h2>

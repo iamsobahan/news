@@ -15,7 +15,7 @@
 }
 .inputIcon {
   position: absolute;
-  left: 50%;
+  right: 10px;
   top: 8px;
   z-index: 9999;
   font-size: 20px;
@@ -29,10 +29,10 @@
   padding: 100px 0;
 }
 
-.jobSearchSlider .slick-prev,
+/* .jobSearchSlider .slick-prev,
 .slick-next {
   top: 110%;
-}
+} */
 
 .jobSearchSlider .slick-dots {
   bottom: -80px;
@@ -68,4 +68,24 @@
 
 .jobs ul li {
   margin: 20px 0;
+}
+.slick-dots {
+  bottom: -40px;
+}
+
+.jobBanner__main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.jobBannerLeft {
+  width: 50%;
+}
+
+.jobBannerRight {
+  width: 50%;
+}
+
+.documentaryBanner__content__middle {
+  padding-top: 120px;
 }

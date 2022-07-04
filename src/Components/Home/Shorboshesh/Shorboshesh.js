@@ -1,8 +1,6 @@
-import React from 'react';
 import './Shorboshesh.css';
-import shorbosheshImg from '../../../images/sorboshesh.png';
 
-const Shorboshesh = () => {
+const Shorboshesh = (props) => {
   return (
     <div className="shorboshesh">
       <div className="container">
@@ -16,7 +14,7 @@ const Shorboshesh = () => {
         </div>
         <div className="row pt-4">
           <div className="col-lg-1">
-            <div className="text-center">
+            <div className="text-center text-area">
               <p className="text-danger fw-bold">রাজনীতি</p>
               <small style={{ fontSize: '12px', fontWeight: '600' }}>
                 ১০ মিনিট আগ
@@ -24,16 +22,19 @@ const Shorboshesh = () => {
             </div>
           </div>
           <div className="col-lg-5">
-            <img className="img-fluid" src={shorbosheshImg} alt="" />
+            <img
+              className="img-fluid"
+              src={`https://api.bestaid.com.bd/${props.shorbosheshData[0].image}`}
+              alt=""
+            />
           </div>
           <div className="col-lg-6">
             <div className="text-end">
-              <h1 className="pb-5 mt-4">
-                শ্রীলঙ্কায় নতুন অর্থমন্ত্রী, গভর্নর নিয়োগ
+              <h1 className="pb-5 mt-4 text-heading">
+                {props.shorbosheshData[0].title}
               </h1>
-              <h3 className="pt-5">
-                শ্রীলঙ্কায় চলমান অস্থিরতার মধ্যেই নতুন অর্থমন্ত্রী নিয়োগ দেওয়া
-                হয়েছে । একই ....
+              <h3 className="pt-5 sub-heading">
+                {props.shorbosheshData[0].sub_title}
               </h3>
             </div>
           </div>

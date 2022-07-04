@@ -1,0 +1,36 @@
+.navigation ul li a {
+  margin: auto 7px;
+}
+.navigation .sidebar {
+  width: 150px;
+  z-index: 10;
+  right: 0;
+  background-color: #ffd9d9 !important;
+  transition: all ease-in-out 1.4s;
+  -webkit-transition: all ease-in-out 1.4s;
+  -moz-transition: all ease-in-out 1.4s;
+  -ms-transition: all ease-in-out 1.4s;
+  -o-transition: all ease-in-out 1.4s;
+}
+
+.navigation .sidebar ul li {
+  background: black;
+  padding: 8px 0px 8px 15px;
+  border-radius: 30px 0px 0px 30px;
+}
+
+.navigation .sidebar ul li a {
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+}
+.navigation .menubar {
+  font-size: 33px;
+  margin-right: 8px;
+  cursor: pointer;
+  padding: 1px;
+}
+.navigation ul li {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

@@ -23,7 +23,7 @@
   flex-wrap: wrap;
   width: 100%;
   box-sizing: border-box;
-  height: 500px;
+  height: auto;
 }
 
 .aro__hover {
@@ -43,7 +43,7 @@
 }
 
 .aro__hover:hover {
-  flex: 1 1 25%;
+  flex: 1 1 10%;
 }
 
 .aro__hover:hover img {

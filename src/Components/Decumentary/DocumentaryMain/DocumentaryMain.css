@@ -1,11 +1,12 @@
 .documentaryBanner,
 .documentaryTopStories {
-  padding-bottom: 100px;
+  margin-top: 80px;
 }
 
 .documentaryBanner__content,
 .documentaryTopStories__content {
   position: relative;
+  margin-bottom: 34px;
 }
 
 .documentaryTopStories__content {
@@ -137,7 +138,7 @@
 .documentaryTopTrending__content-custom {
   position: absolute;
   bottom: 10px;
-  left: 65px;
+  left: 55px;
   font-size: 10px;
   color: #f1f1f1;
 }
@@ -219,8 +220,8 @@
 }
 .text__position {
   position: absolute;
-  top: 60%;
-  left: 50%;
+  bottom: 20px;
+  left: 15px;
 }
 .align h1 {
   font-size: 30px;
