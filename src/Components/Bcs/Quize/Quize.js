@@ -6,6 +6,7 @@ import Quizes from './Quizes';
 import Pagination from './Pagination';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { clear } from '@testing-library/user-event/dist/clear';
 
 const quiz = [
   {
@@ -135,31 +136,38 @@ const Quize = () => {
   const totalPage = Math.ceil(data.length / perPageQuiz);
 
   const [modal, setModal] = useState(false);
+
   let [second, setSecond] = useState(60);
-  let [minute, setMinute] = useState(60);
+  let [minute, setMinute] = useState(data.length / 2);
 
-  const toggleModel = () => {
-    setModal(!modal);
-
-    setInterval(() => {
-      setTimeout(() => {
-        setMinute(minute - 1);
+  useEffect(() => {
+    let timer;
+    if (modal) {
+      timer = setInterval(() => {
         second = second - 1;
-
         if (second <= 9 && second >= 0) {
           second = '0' + second;
         }
         if (second < 0) {
           second = 60;
         }
-
         if (second >= 60) {
           minute = minute - 1;
           setMinute(minute);
         }
         setSecond(second);
       }, 1000);
-    }, 1000);
+    }
+
+    return () => {
+      clearInterval(timer);
+      setMinute(data.length / 2);
+      setSecond(60);
+    };
+  }, [modal]);
+
+  const toggleModel = () => {
+    setModal(!modal);
   };
 
   if (modal) {
@@ -221,9 +229,10 @@ const Quize = () => {
 
           <div className="quize__model_content slide-bottom p-5 shadow-lg">
             {currentPage <= totalPage && (
-              <h3 onClick={toggleModel} className="text-center fw-bolder">
-                বিসিএস প্রস্তুতি কুইজ
-              </h3>
+              <>
+                <button onClick={() => setModal(!modal)}>close</button>
+                <h3 className="text-center fw-bolder">বিসিএস প্রস্তুতি কুইজ</h3>
+              </>
             )}
             <div className="d-flex justify-content-between pt-5">
               {currentPage <= totalPage && (

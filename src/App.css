@@ -2,6 +2,14 @@
   font-family: 'Noto Serif Bengali', serif !important;
 }
 
+img {
+  cursor: pointer;
+}
+
+svg {
+  cursor: pointer;
+}
+
 a {
   text-decoration: none !important;
 }

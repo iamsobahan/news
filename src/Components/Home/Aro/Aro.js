@@ -1,11 +1,16 @@
 import React from 'react';
 import './Aro.css';
-import aroImg from '../../../images/last.jpg';
-import aroImg2 from '../../../images/last2.jpg';
+
 import { BsArrowRight } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Aro = (props) => {
+  const Navigate = useNavigate();
+
+  const clickHandler = (slug) => {
+    Navigate(`/details/${slug}`);
+  };
+
   return (
     <div className="aro pb-5">
       <div className="container">
@@ -26,7 +31,10 @@ const Aro = (props) => {
                     src={`https://api.bestaid.com.bd/${item.image}`}
                     alt=""
                   />
-                  <div className="aro__overlay">
+                  <div
+                    className="aro__overlay"
+                    onClick={() => clickHandler(item.slug)}
+                  >
                     <div>
                       <div className="d-flex justify-content-between">
                         <p className="text-danger">সরকারি</p>

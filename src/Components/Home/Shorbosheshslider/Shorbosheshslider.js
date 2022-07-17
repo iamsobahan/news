@@ -1,11 +1,16 @@
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import shorbosheshslideImg from '../../../images/shorbo1.png';
 
 import './Shorbosheshslider.css';
+import { useNavigate } from 'react-router-dom';
 
 const Shorbosheshslider = (props) => {
+  const Navigate = useNavigate();
+  const clickHandler = (slug) => {
+    Navigate(`/details/${slug}`);
+  };
+
   const settings = {
     dots: false,
     infinite: true,
@@ -48,7 +53,7 @@ const Shorbosheshslider = (props) => {
         <Slider {...settings}>
           {props.ShorbosheshsliderData.map((item) => {
             return (
-              <div>
+              <div onClick={() => clickHandler(item.slug)}>
                 <div className="d-flex">
                   <div className="w-25 text-center">
                     <p className="text-danger fw-bold">রাজনীতি</p>

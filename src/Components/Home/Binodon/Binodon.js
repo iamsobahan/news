@@ -1,11 +1,18 @@
 import React from 'react';
 import './Binodon.css';
-import binodonBoro from '../../../images/binodon.jpg';
-import binodonChoto from '../../../images/binodonright.png';
-import binodonChoto2 from '../../../images/binodon2.png';
 import { BsArrowRight } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
 const Binodon = (props) => {
+  const Navigate = useNavigate();
+
+  const clickHandler = () => {
+    Navigate(`/details/${props.binodonBoroData.slug}`);
+  };
+
+  const clickHandlerChoto = (slug) => {
+    Navigate(`/details/${slug}`);
+  };
   return (
     <div className="binodon">
       <div className="container">
@@ -27,7 +34,10 @@ const Binodon = (props) => {
                   src={`https://api.bestaid.com.bd/${props.binodonBoroData.image}`}
                   alt=""
                 />
-                <div className="binodon__overlay px-4 pt-3 pb-5 d-flex flex-column justify-content-between">
+                <div
+                  onClick={clickHandler}
+                  className="binodon__overlay px-4 pt-3 pb-5 d-flex flex-column justify-content-between"
+                >
                   <div className="d-flex text-light justify-content-between">
                     <p style={{ fontSize: '15px' }}>ঢলিউড</p>
                     <small style={{ fontSize: '12px', fontWeight: '600' }}>
@@ -52,6 +62,7 @@ const Binodon = (props) => {
                   return (
                     <div className="col-lg-6">
                       <img
+                        onClick={() => clickHandlerChoto(item.slug)}
                         className="img-fluid"
                         src={`https://api.bestaid.com.bd/${item.image}`}
                         alt=""

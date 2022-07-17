@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const AroNewsAll = () => {
+  const Navigate = useNavigate();
+
+  const clickHandler = (slug) => {
+    Navigate(`/details/${slug}`);
+  };
   window.scroll(0, 0);
   const [data, setData] = useState({});
 
@@ -26,7 +32,10 @@ const AroNewsAll = () => {
                           src={`https://api.bestaid.com.bd/${item.image}`}
                           alt=""
                         />
-                        <div className="aro__overlay">
+                        <div
+                          className="aro__overlay"
+                          onClick={() => clickHandler(item.slug)}
+                        >
                           <div>
                             <div className="d-flex justify-content-between">
                               <p className="text-danger">সরকারি</p>

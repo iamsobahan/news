@@ -13,6 +13,9 @@ import { BcsMain } from './Components/Bcs/BcsImport/BcsImport';
 import QuizeResult from './Components/Bcs/Quize/QuizeResult';
 import Navigation from './Components/Navigation/Navigation';
 import AroNewsAll from './Components/AroNewsAll/AroNewsAll';
+import Jogajog from './Components/Jogajog/Jogajog';
+import Privacy from './Components/Privacy/Privacy';
+import Shomporko from './Components/Shomporko/Shomporko';
 function App() {
   return (
     <>
@@ -27,6 +30,9 @@ function App() {
         <Route path="/bcs" element={<BcsMain />} />
         <Route path="/quize" element={<QuizeResult />} />
         <Route path="/aro-news-all" element={<AroNewsAll />} />
+        <Route path="/shomporko" element={<Shomporko />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/jogajog" element={<Jogajog />} />
         <Route path="/details/:id" element={<Details />} />
       </Routes>
       <Footer />

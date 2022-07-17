@@ -1,6 +1,12 @@
 import './Shorboshesh.css';
+import { useNavigate } from 'react-router-dom';
 
 const Shorboshesh = (props) => {
+  const Navigate = useNavigate();
+
+  const clickHandler = () => {
+    Navigate(`/details/${props.shorbosheshData[0].slug}`);
+  };
   return (
     <div className="shorboshesh">
       <div className="container">
@@ -23,6 +29,7 @@ const Shorboshesh = (props) => {
           </div>
           <div className="col-lg-5">
             <img
+              onClick={clickHandler}
               className="img-fluid"
               src={`https://api.bestaid.com.bd/${props.shorbosheshData[0].image}`}
               alt=""

@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 import './VideoShongbad.css';
 import { Modal } from 'react-bootstrap';
 import { BsFillPlayCircleFill } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
 const VideoShongbad = (props) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
+
+  const Navigate = useNavigate();
+  const clickHandler = (slug) => {
+    Navigate(`/details/${slug}`);
+  };
   return (
     <div className="videoShongbad">
       <div className="container">
@@ -69,6 +75,7 @@ const VideoShongbad = (props) => {
                     <div className="col-12">
                       <div className="d-flex mt-5 bg-white shadow-lg">
                         <img
+                          onClick={() => clickHandler(item.slug)}
                           style={{ width: '180px', height: '180px' }}
                           src={`https://api.bestaid.com.bd/${item.image}`}
                           alt=""

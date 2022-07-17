@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Col, Container, Row } from 'react-bootstrap';
 import { FaGooglePlay } from 'react-icons/fa';
 import { AiFillApple } from 'react-icons/ai';
@@ -9,15 +10,31 @@ import { BsFacebook, BsInstagram, BsPinterest } from 'react-icons/bs';
 import { FaLinkedin } from 'react-icons/fa';
 import { TiWiFi } from 'react-icons/ti';
 import './Footer.css';
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from './../../Hooks/useAuth';
 
 function Footer() {
+  const Navigate = useNavigate();
+
+  const clickHandler = () => {
+    Navigate('/home');
+  };
+  const { contact } = useAuth();
+
   return (
     <footer>
       <Container>
         <div className="py-5">
           <Row>
             <Col>
-              <img src={FooterImage} alt="footer Logo" />
+              {Object.keys(contact).length > 0 && (
+                <img
+                  src={`https://api.bestaid.com.bd/${contact?.logo}`}
+                  alt="footer Logo"
+                  onClick={clickHandler}
+                />
+              )}
+
               <p>২০২২ সময় মিডিয়া লিমিটেড</p>
               <p className="pt-4">সমস্ত অধিকার সংরক্ষিত</p>
               <img className="mb-4 pb-4" src={FooterHighlight} alt="" />
@@ -76,18 +93,66 @@ function Footer() {
         <div className="py-5">
           <p> ফলো সামাজিক সময়</p>
           <div className="py-3 border-bottom border-2 border-dark">
-            <BsFacebook className="f-30 me-3" />
-            <AiFillYoutube className="f-30 me-3" />
-            <AiOutlineTwitter className="f-30 me-3" />
-            <FaLinkedin className="f-30 me-3" />
-            <BsInstagram className="f-30 me-3" />
-            <BsPinterest className="f-30 me-3" />
-            <TiWiFi className="f-30 me-3" />
+            <a
+              href={`https://${contact.facebook}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <BsFacebook className="f-30 me-3" />
+            </a>
+            <a
+              href={`https://${contact.youtube}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <AiFillYoutube className="f-30 me-3" />
+            </a>
+            <a
+              href={`https://${contact.twitter}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <AiOutlineTwitter className="f-30 me-3" />
+            </a>
+            <a
+              href={`https://${contact.linkedin}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaLinkedin className="f-30 me-3" />
+            </a>
+            <a
+              href={`https://${contact.instagram}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <BsInstagram className="f-30 me-3" />
+            </a>
+            <a
+              href={`https://${contact.print}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <BsPinterest className="f-30 me-3" />
+            </a>
+            <a
+              href={`https://${contact.others}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <TiWiFi className="f-30 me-3" />
+            </a>
           </div>
           <ul className="mt-3">
-            <li className="d-inline me-4 list-none">আমাদের সম্পর্কে</li>
-            <li className="d-inline me-4 list-none">গোপনীয়তা নীতি</li>
-            <li className="d-inline me-4 list-none">যোগাযোগ</li>
+            <li className="d-inline me-4 list-none">
+              <Link to="shomporko">আমাদের সম্পর্কে</Link>
+            </li>
+            <li className="d-inline me-4 list-none">
+              <Link to="privacy">গোপনীয়তা নীতি</Link>
+            </li>
+            <li className="d-inline me-4 list-none">
+              <Link to="jogajog">যোগাযোগ</Link>
+            </li>
           </ul>
         </div>
       </Container>

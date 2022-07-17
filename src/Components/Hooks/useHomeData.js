@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const useHomeData = () => {
   const [data, setData] = useState({});
+  const [contact, setContact] = useState({});
 
   useEffect(() => {
     axios
@@ -10,9 +11,21 @@ const useHomeData = () => {
       .then((res) => setData(res.data.data))
       .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {
+    axios
+      .get('https://api.bestaid.com.bd/api/show/site-contact')
+      .then((res) => {
+        setContact(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return {
     data,
     setData,
+    contact,
   };
 };
 

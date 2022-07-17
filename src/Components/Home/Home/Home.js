@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Banner from './../Banner/Banner';
 import New from './../TopNews/New';
 
@@ -10,6 +10,7 @@ import Aro from './../Aro/Aro';
 import useAuth from './../../Hooks/useAuth';
 
 const Home = () => {
+  window.scroll(0, 0);
   const { data } = useAuth();
   return (
     <>
