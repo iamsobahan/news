@@ -16,6 +16,7 @@ import AroNewsAll from './Components/AroNewsAll/AroNewsAll';
 import Jogajog from './Components/Jogajog/Jogajog';
 import Privacy from './Components/Privacy/Privacy';
 import Shomporko from './Components/Shomporko/Shomporko';
+import Register from './Components/Auth/Register';
 function App() {
   return (
     <>
@@ -32,6 +33,7 @@ function App() {
         <Route path="/aro-news-all" element={<AroNewsAll />} />
         <Route path="/shomporko" element={<Shomporko />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/jogajog" element={<Jogajog />} />
         <Route path="/details/:id" element={<Details />} />
       </Routes>

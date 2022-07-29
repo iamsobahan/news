@@ -25,6 +25,7 @@ h2 {
 .quize__model {
   transition: 0.4s;
   overflow-y: scroll !important;
+  z-index: 9999;
 }
 
 .quize__model,
@@ -39,6 +40,7 @@ h2 {
 
 .quize__overlay {
   background: rgba(49, 49, 49, 0.7);
+  z-index: 9;
 }
 
 .quize {
@@ -51,10 +53,11 @@ h2 {
   top: 10%;
   left: 20%;
   line-height: 1.4;
-  background: #f1f1f1;
+
   border-radius: 5px;
   width: 724px;
   height: auto;
+  z-index: 9999 !important;
 }
 
 .active-modal {

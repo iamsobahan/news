@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { RiTimerLine } from 'react-icons/ri';
 import { BsFlag } from 'react-icons/bs';
-import { Form, ProgressBar } from 'react-bootstrap';
+import { ProgressBar } from 'react-bootstrap';
 import Quizes from './Quizes';
 import Pagination from './Pagination';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { clear } from '@testing-library/user-event/dist/clear';
+
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import useAuth from './../../Hooks/useAuth';
 
 const quiz = [
   {
@@ -16,7 +17,7 @@ const quiz = [
     option2: '(খ) ১৯ জানুয়ারি ১৯২৬ ',
     option3: '(গ) ১৯ মার্চ ১৯২৬ ',
     option4: '(ঘ) ১৯ নভেম্বর ১৯২৬ ',
-    name: 'first',
+    name: '1',
   },
   {
     id: '২',
@@ -25,7 +26,7 @@ const quiz = [
     option2: '(খ) মোস্তফা কামাল',
     option3: '(গ) মুন্সী আব্দুর রহিম ',
     option4: '(ঘ) নূর মোহাম্মদ শেখ ',
-    name: 'second',
+    name: '2',
   },
   {
     id: '৩',
@@ -34,7 +35,7 @@ const quiz = [
     option2: '(খ)  ১৭ মার্চ ১৯৭৩',
     option3: '(গ) ২৭ মার্চ ১৯৭৩ ',
     option4: '(ঘ) ৭ মার্চ ১৯৭৪ ',
-    name: 'third',
+    name: '3',
   },
   {
     id: '4',
@@ -43,7 +44,7 @@ const quiz = [
     option2: '(খ) খাগড়াছড়ি',
     option3: '(গ) বান্দরবান',
     option4: '(ঘ) সিলেট',
-    name: 'four',
+    name: '4',
   },
   {
     id: '5',
@@ -52,7 +53,7 @@ const quiz = [
     option2: '(খ) ১৯ জানুয়ারি ১৯২৬ ',
     option3: '(গ) ১৯ মার্চ ১৯২৬ ',
     option4: '(ঘ) ১৯ নভেম্বর ১৯২৬ ',
-    name: 'five',
+    name: '5',
   },
   {
     id: '6',
@@ -61,7 +62,7 @@ const quiz = [
     option2: '(খ) মোস্তফা কামাল',
     option3: '(গ) মুন্সী আব্দুর রহিম ',
     option4: '(ঘ) নূর মোহাম্মদ শেখ ',
-    name: 'six',
+    name: '6',
   },
   {
     id: '7',
@@ -70,7 +71,7 @@ const quiz = [
     option2: '(খ)  ১৭ মার্চ ১৯৭৩',
     option3: '(গ) ২৭ মার্চ ১৯৭৩ ',
     option4: '(ঘ) ৭ মার্চ ১৯৭৪ ',
-    name: 'seven',
+    name: '7',
   },
   {
     id: '৪',
@@ -79,7 +80,7 @@ const quiz = [
     option2: '(খ) খাগড়াছড়ি',
     option3: '(গ) বান্দরবান',
     option4: '(ঘ) সিলেট',
-    name: 'eight',
+    name: '8',
   },
   {
     id: '9',
@@ -88,7 +89,7 @@ const quiz = [
     option2: '(খ) ১৯ জানুয়ারি ১৯২৬ ',
     option3: '(গ) ১৯ মার্চ ১৯২৬ ',
     option4: '(ঘ) ১৯ নভেম্বর ১৯২৬ ',
-    name: 'nine',
+    name: '9',
   },
   {
     id: '10',
@@ -97,7 +98,7 @@ const quiz = [
     option2: '(খ) মোস্তফা কামাল',
     option3: '(গ) মুন্সী আব্দুর রহিম ',
     option4: '(ঘ) নূর মোহাম্মদ শেখ ',
-    name: 'ten',
+    name: '10',
   },
   {
     id: '11',
@@ -106,7 +107,7 @@ const quiz = [
     option2: '(খ)  ১৭ মার্চ ১৯৭৩',
     option3: '(গ) ২৭ মার্চ ১৯৭৩ ',
     option4: '(ঘ) ৭ মার্চ ১৯৭৪ ',
-    name: 'eleven',
+    name: '11',
   },
   {
     id: '12',
@@ -115,15 +116,43 @@ const quiz = [
     option2: '(খ) খাগড়াছড়ি',
     option3: '(গ) বান্দরবান',
     option4: '(ঘ) সিলেট',
-    name: 'twelve',
+    name: '12',
   },
 ];
 
 const Quize = () => {
   let [data, setData] = useState(quiz);
   let [currentPage, setCurrentPage] = useState(1);
+  let [check, setCheck] = useState(false);
+  const { answer, setAnswer } = useAuth();
   let perPageQuiz = 4;
-  const [answer, setAnswer] = useState({});
+
+  const Navigate = useNavigate();
+  const registerRedirect = () => {
+    setTimeout(() => {
+      let timerInterval;
+      Swal.fire({
+        title: 'Redirect to Register',
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const b = Swal.getHtmlContainer().querySelector('b');
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft();
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log('I was closed by the timer');
+        }
+      });
+      Navigate('/register');
+    }, 1000);
+  };
 
   function changeHandler(e) {
     setAnswer((prevState) => ({
@@ -195,6 +224,9 @@ const Quize = () => {
   const clickHandler = () => {
     setModal(false);
     setCurrentPage(1);
+    setTimeout(() => {
+      Navigate('/quize');
+    }, 1000);
   };
 
   return (
@@ -212,7 +244,9 @@ const Quize = () => {
 
           <div className="text-center my-5">
             <button
-              onClick={toggleModel}
+              onClick={() => {
+                check ? toggleModel() : registerRedirect();
+              }}
               type="button"
               className="btn btn-dark py-2 px-5 fs-5"
             >
@@ -263,15 +297,17 @@ const Quize = () => {
               <div className="text-center py-5">
                 <h3 className="customRed">ধন্যবাদ!</h3>
                 <h4 className="py-2">কুইজে অংশ নেওয়ার জন্য</h4>
-                <Link
+                <span
                   onClick={clickHandler}
-                  to="/quize"
                   // onClick={() => nextButton()}
-                  style={{ borderBottom: '2px solid #ff1010' }}
+                  style={{
+                    borderBottom: '2px solid #ff1010',
+                    cursor: 'pointer',
+                  }}
                   className="customRed"
                 >
                   ফলাফল দেখুন
-                </Link>
+                </span>
               </div>
             )}
 

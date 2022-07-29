@@ -213,10 +213,10 @@
 }
 /* Modified */
 .modal-content {
-  background-color: transparent !important;
   border: 1px solid rgba(0, 0, 0, 0);
-  width: 800px !important;
-  height: 100vh;
+  width: 600px !important;
+  height: 450px;
+  margin: 0 auto;
 }
 .text__position {
   position: absolute;

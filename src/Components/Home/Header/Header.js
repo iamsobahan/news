@@ -1,27 +1,21 @@
 import './Header.css';
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FiSearch } from 'react-icons/fi';
+import { FiSearch, FiLogIn } from 'react-icons/fi';
 import { MdCastForEducation } from 'react-icons/md';
 import { IoIosArrowDown } from 'react-icons/io';
 import { FaSearchPlus, FaYoutube } from 'react-icons/fa';
 
 import logo from '../../../images/logo.png';
 
-import {
-  Container,
-  Form,
-  FormControl,
-  Nav,
-  Navbar,
-  NavDropdown,
-} from 'react-bootstrap';
+import { Container, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import HeaderDinamic from './HeaderDinamic';
 
 const Header = () => {
   const [headerData, setheaderData] = useState([]);
+
   useEffect(() => {
     axios('https://api.bestaid.com.bd/api/show/category/home')
       .then((res) => {
@@ -34,9 +28,14 @@ const Header = () => {
 
   return (
     <div className="nav__bg">
+      {/* <RegisterModal
+        show={modalShow}
+        onLoginShow={() => setModalShow(true)}
+        onHide={() => setModalShow(false)}
+      /> */}
       <Navbar>
         <Container>
-          <div className="col-lg-4 col-md-4 col-sm-4">
+          <div className="col-lg-3 col-md-3 col-sm-3">
             <div className="input">
               <input type="text" placeholder="নিউজ লিখতে এখানে লিখুন" />
               <button>
@@ -44,12 +43,12 @@ const Header = () => {
               </button>
             </div>
           </div>
-          <div className="col-lg-3 col-md-4 col-sm-4">
+          <div className="col-lg-3 col-md-3 col-sm-3">
             <Link to="/">
               <img className="logo" src={logo} alt="" />
             </Link>
           </div>
-          <div className="col-lg-5 col-md-5 col-sm-5">
+          <div className="col-lg-6 col-md-6 col-sm-6">
             <ul className="nav__right">
               <li>
                 <Link to="/bcs">
@@ -67,6 +66,12 @@ const Header = () => {
                 <Link to="/documentary">
                   ডকুমেন্টরি
                   <FaYoutube />
+                </Link>
+              </li>
+              <li>
+                <Link to="/register">
+                  Login/Register
+                  <FiLogIn />
                 </Link>
               </li>
             </ul>

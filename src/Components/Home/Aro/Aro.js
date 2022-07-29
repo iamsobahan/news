@@ -25,7 +25,7 @@ const Aro = (props) => {
         <div className="aro__contents mt-3 mb-3">
           {props.aroData.map((item, index) => {
             return (
-              <div className="aro__hover">
+              <div className="aro__hover" key={index}>
                 <div className="aro__img">
                   <img
                     src={`https://api.bestaid.com.bd/${item.image}`}

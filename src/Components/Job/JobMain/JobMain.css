@@ -15,10 +15,10 @@
 }
 .inputIcon {
   position: absolute;
-  right: 10px;
-  top: 8px;
+  right: 129px;
+  top: 2px;
   z-index: 9999;
-  font-size: 20px;
+  font-size: 25px;
 }
 .inputIconMain input::placeholder {
   color: black;
@@ -74,8 +74,25 @@
 }
 
 .jobBanner__main {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-areas:
+    'first first first first second second second second'
+    'first first first first second second second second'
+    'first first first first third third four four';
+}
+
+.first {
+  grid-area: first;
+}
+.second {
+  grid-area: second;
+}
+.third {
+  grid-area: third;
+}
+
+.four {
+  grid-area: four;
 }
 
 .jobBannerLeft {
@@ -88,4 +105,33 @@
 
 .documentaryBanner__content__middle {
   padding-top: 120px;
+}
+
+.jobBanner .documentaryEditors__content-overlay h3 {
+  color: white;
+  font-size: 18px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 300px;
+  transform: translate(-50%, -50%);
+}
+
+.jobBanner .documentaryBanner__content__middle {
+  padding-top: 300px;
+}
+
+.page-link {
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+
+.page-link:hover {
+  color: red;
+}
+
+.page-link:disabled {
+  background: darkgray;
+  color: #444;
 }
